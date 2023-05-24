@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetarian Tacos - Scrumptious Recipes</title>
+    <link rel="stylesheet" href='{% static "css/recipes.css" %}'>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="list.html" id = "nav">Main Page</a>
+        </nav>
+    </header>
+<main>
+    <div class = "align-text-center">
+    <h1>Vegetarian Tacos</h1>
+    <img src = "https://mks.io/public-tacos" alt="Vegetarian Tacos">
+        <div>
+        4.3 stars
+        </div>
+    </div>
+
+<div class = "flex-container">
+    <div class = "flex-item">
+    <h2 class = "align-text-center">Ingredients</h2>
+    <table class = "center">
+        <th>
+            <tr>
+                <th>Amount</th>
+                <th>Food item</th>
+            </tr>
+        </th>
+        <tbody>
+            <tr>
+                <td>1 cup</td>
+                <td>Green beans</td>
+            </tr>
+
+            <tr class = "shade-gray">
+                <td>3 ears</td>
+                <td>Fresh corn</td>
+            </tr>
+
+            <tr>
+                <td>2 cups</td>
+                <td>Tomatillo salsa</td>
+            </tr>
+
+            <tr class = "shade-gray">
+                <td>8</td>
+                <td>Corn tortillas</td>
+            </tr>
+
+            <tr>
+                <td>0.5 cups</td>
+                <td>Cojita cheese</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class = "flex-item">
+    <h2 class = "align-text-center">Steps</h2>
+    <ol>
+        <li>Blanch the green beans</li>
+        <li>Grill the green beans and the ears of corn</li>
+        <li>Chop the green beans</li>
+        <li>Slice the corn off the cob</li>
+        <li>Grill the tortillas</li>
+        <li>Assemble the tacos with veggies, salsa, and cheese</li>
+    </ol>
+    </div>
+</div>
+
+</main>
+<footer class = "shade-gradient">Made with <span>love </span>by Scrumptious Recipes</footer>
+
+</body>
+</html>
