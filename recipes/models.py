@@ -7,3 +7,5 @@ class Recipe(models.Model):
     picture = models.URLField()
     description = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    prep_time = models.PositiveSmallIntegerField(null=True)
+    cook_time = models.PositiveSmallIntegerField(null=True)

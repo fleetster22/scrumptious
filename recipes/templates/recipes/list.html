@@ -11,47 +11,26 @@
 <body>
 <header>
     <nav>
-        <a href="list.html"  id = "nav">Main Page</a>
+        <a href="{% url 'recipe_list' %}"  id = "nav">Main Page</a>
     </nav>
 </header>
 <main>
     <h1 class = "align-text-center">Scrumptious Recipes</h1>
     <h2 class = "align-text-center">All the food that's fit to eat</h2>
+
     <div class = "container">
+        {% for recipe in recipe_list %}
     <div class = "grid-item">
-        <h3><a href ="detail.html">Vegetarian Tacos</a></h3>
-        <a href ="detail.html"><img src="https://mks.io/public-tacos" alt="Vegetarian Tacos"></a>
+
+        <h3><a href ="{% url 'show_recipe' recipe.id %}">{{ recipe.title }}</a></h3>
+        <a href ="{% url 'show_recipe' recipe.id %}"><img src="{{ recipe.picture}}" alt="Vegetarian Tacos"></a>
         <div class = "rating">4.3 stars</div>
+        <p id="smallp">Date added: {{ recipe.created_on|date:"F j, Y"}}</p>
     </div>
 
-
-    <div class = "grid-item">
-        <h3><a href ="detail.html">Vegetarian Tacos</a></h3>
-        <a href ="detail.html"><img src="https://mks.io/public-tacos" alt="Vegetarian Tacos"></a>
-        <div class = "rating">4.3 stars</div>
-    </div>
-
-
-    <div class = "grid-item">
-        <h3><a href ="detail.html">Vegetarian Tacos</a></h3>
-        <a href ="detail.html"><img src="https://mks.io/public-tacos" alt="Vegetarian Tacos"></a>
-        <div class = "rating">4.3 stars</div>
-    </div>
-
-
-    <div class = "grid-item">
-        <h3><a href ="detail.html">Vegetarian Tacos</a></h3>
-        <a href ="detail.html"><img src="https://mks.io/public-tacos" alt="Vegetarian Tacos"></a>
-        <div class = "rating">4.3 stars</div>
-    </div>
-
-
-    <div class = "grid-item">
-        <h3><a href ="detail.html">Vegetarian Tacos</a></h3>
-        <a href ="detail.html"><img src="https://mks.io/public-tacos" alt="Vegetarian Tacos"></a>
-        <div class = "rating">4.3 stars</div>
-    </div>
-
+        {% empty %}
+            <p>Your recipe list is empty. Please add one now.</p>
+        {% endfor %}
 </div>
 </main>
 <footer>
