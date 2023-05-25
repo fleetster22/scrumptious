@@ -8,16 +8,17 @@
 {% block content%}
     <header>
         <nav>
-            <a href="{% url 'recipe_list' %}" id = "nav">Main Page</a>
+            <a href="{% url 'recipe_list' %}">Main Page</a>
         </nav>
     </header>
 <main>
+    <h1>Edit {{ recipe_object.title}}</h1>
     <!-- creates a hidden input tag that contains a security token
     renders the form as a paragraph -->
    <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button>Add Recipe</button>
+    <button>Save</button>
    </form>
 
 </main>

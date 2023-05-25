@@ -1,17 +1,16 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrumptious Recipes</title>
-    <link rel="stylesheet" href='{% static "css/recipes.css" %}'>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+    Scrumptious Recipes
+{% endblock title %}
+
+
+{% block content%}
 <header>
     <nav>
-        <a href="{% url 'recipe_list' %}"  id = "nav">Main Page</a>
+        <a href="{% url 'recipe_list' %}">Main Page</a>
+        <a href="{% url 'create_recipe' %}" >Add Recipe</a>
+
     </nav>
 </header>
 <main>
@@ -23,7 +22,7 @@
     <div class = "grid-item">
 
         <h3><a href ="{% url 'show_recipe' recipe.id %}">{{ recipe.title }}</a></h3>
-        <a href ="{% url 'show_recipe' recipe.id %}"><img src="{{ recipe.picture}}" alt="Vegetarian Tacos"></a>
+        <a href ="{% url 'show_recipe' recipe.id %}"><img src="{{ recipe.picture|default:'https://placekitten.com/200/300' }}" alt="Vegetarian Tacos"></a>
         <div class = "rating">4.3 stars</div>
         <p id="smallp">Date added: {{ recipe.created_on|date:"F j, Y"}}</p>
     </div>
@@ -33,8 +32,4 @@
         {% endfor %}
 </div>
 </main>
-<footer>
-    Made with <span>love</span> by Scrumptious Recipes
-</footer>
-</body>
-</html>
+{% endblock content %}

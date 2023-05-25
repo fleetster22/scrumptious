@@ -1,16 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+    align-items: center;
+    text-align: center;
     position: sticky;
     border-bottom: 4px solid;
     -moz-border-image: -moz-linear-gradient(to left, #79cc9e 0%,#beedec 25%,#c5ceff 50%,#cabd96 75%,#b591c7 100%);
     -webkit-border-image: -webkit-linear-gradient(to left, #79cc9e 0%,#beedec 25%,#c5ceff 50%,#cabd96 75%,#b591c7 100%);
     border-image: linear-gradient(to left, #79cc9e 0%,#beedec 25%,#c5ceff 50%,#cabd96 75%,#b591c7 100%);
     border-image-slice: 1;
-    padding: 16px;
+    padding: 16px 30px;
     background-image: linear-gradient(to right, #1D5113, #FBDCA1, #1D5113);
     font-size: 1.2rem;
     font-weight: 600;
+    color: #FBDCA1;
+    padding-right: 22px;
+}
+
+nav:hover {
+    color: orangered;
 }
 
 main {
@@ -107,14 +118,6 @@ li {
 
 .align-text-center {
     text-align: center;
-}
-
-#nav {
-    color: #FBDCA1;
-}
-
-#nav:hover {
-    color: orangered;
 }
 
 a {
