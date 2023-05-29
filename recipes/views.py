@@ -49,6 +49,7 @@ def edit_recipe(request, id):
 
     recipe = get_object_or_404(Recipe, id=id)
     if request.method == "POST":
+        # when user saves the changes, it replaces the instance with the POST # changes
         form = RecipeForm(request.POST, instance=recipe)
         if form.is_valid():
             form.save()

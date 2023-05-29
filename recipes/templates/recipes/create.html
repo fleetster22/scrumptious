@@ -12,13 +12,15 @@
         </nav>
     </header>
 <main>
+    <div class = "container">
+        <h1 class = "align-text-center">Add Your Recipe Here</h1>
     <!-- creates a hidden input tag that contains a security token
     renders the form as a paragraph -->
    <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+        {{ form.as_p }}
     <button>Add Recipe</button>
    </form>
-
+</div>
 </main>
 {% endblock content %}

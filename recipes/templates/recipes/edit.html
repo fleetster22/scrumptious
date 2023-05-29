@@ -9,6 +9,8 @@
     <header>
         <nav>
             <a href="{% url 'recipe_list' %}">Main Page</a>
+            <a href="{% url 'show_recipe' recipe.id %}">Back</a>
+
         </nav>
     </header>
 <main>
@@ -18,7 +20,7 @@
    <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button>Save</button>
+    <button>Save Changes</button>
    </form>
 
 </main>
