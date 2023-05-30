@@ -1,4 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404, get_list_or_404
+from django.contrib.auth.decorators import login_required
+
 # from django.http import HttpResponse
 from recipes.models import Recipe
 from recipes.forms import RecipeForm
@@ -8,7 +10,6 @@ from recipes.forms import RecipeForm
 def show_recipe(request, id):
 
     recipe = get_object_or_404(Recipe, id=id)
-
     context = {
         "recipe_object": recipe,
     }
@@ -26,13 +27,16 @@ def recipe_list(request):
      }
     return render(request, "recipes/list.html", context)
 
-
+@login_required
 # validates data entered in form and pushes data to db
 def create_recipe(request):
     if request.method == "POST":
         form = RecipeForm(request.POST)
         if form.is_valid():
-            form.save()
+            # pauses the save until the author is added
+            recipe = form.save(False)
+            recipe.author = request.user
+            recipe.save()
             # tells browser which page to go to after data is saved
             return redirect("recipe_list")
 

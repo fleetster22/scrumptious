@@ -32,8 +32,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# manually added apps = appname.apps.<class name in apps.py>
 INSTALLED_APPS = [
     'recipes.apps.RecipesConfig',
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
