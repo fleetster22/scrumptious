@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from accounts.forms import SignUpForm, LoginForm
 
 # Create your views here.
@@ -39,7 +39,7 @@ def signup(request):
     return render(request, "accounts/signup.html", context)
 
 def user_login(request):
-    if request.method== "POST":
+    if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
@@ -59,3 +59,7 @@ def user_login(request):
         "form": form,
     }
     return render(request, "accounts/login.html", context)
+
+def user_logout(request):
+    logout(request)
+    return redirect("recipe_list")

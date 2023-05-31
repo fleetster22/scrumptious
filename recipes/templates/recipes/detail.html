@@ -34,42 +34,22 @@
             </tr>
         </th>
         <tbody>
+            {% for ingredient in recipe_object.ingredients.all %}
             <tr>
-                <td>1 cup</td>
-                <td>Green beans</td>
+                <td>{{ ingredient.amount }}</td>
+                <td>{{ ingredient.food_item }}</td>
             </tr>
-
-            <tr class = "shade-gray">
-                <td>3 ears</td>
-                <td>Fresh corn</td>
-            </tr>
-
-            <tr>
-                <td>2 cups</td>
-                <td>Tomatillo salsa</td>
-            </tr>
-
-            <tr class = "shade-gray">
-                <td>8</td>
-                <td>Corn tortillas</td>
-            </tr>
-
-            <tr>
-                <td>0.5 cups</td>
-                <td>Cojita cheese</td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
 <div class = "flex-item">
     <h2 class = "align-text-center">Steps</h2>
     <ol>
-        <li>Blanch the green beans</li>
-        <li>Grill the green beans and the ears of corn</li>
-        <li>Chop the green beans</li>
-        <li>Slice the corn off the cob</li>
-        <li>Grill the tortillas</li>
-        <li>Assemble the tacos with veggies, salsa, and cheese</li>
+        <!-- recipe_object is from show_recipe function in views .all is to look at all the steps -->
+        {% for step in recipe_object.steps.all %}
+        <li>{{ step.instruction }}</li>
+        {% endfor %}
     </ol>
     </div>
 </div>

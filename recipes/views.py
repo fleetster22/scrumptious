@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required
 
-# from django.http import HttpResponse
+from django.http import HttpResponse
 from recipes.models import Recipe
 from recipes.forms import RecipeForm
 
@@ -48,7 +48,7 @@ def create_recipe(request):
     }
     return render(request, 'recipes/create.html', context)
 
-
+@login_required
 def edit_recipe(request, id):
 
     recipe = get_object_or_404(Recipe, id=id)
@@ -68,3 +68,11 @@ def edit_recipe(request, id):
         "form": form,
     }
     return render(request, 'recipes/edit.html', context)
+
+@login_required
+def my_recipe_list(request):
+    recipes = Recipe.objects.filter(author=request.user)
+    context = {
+        "recipe_list": recipes,
+    }
+    return render(request, "recipes/list.html", context)

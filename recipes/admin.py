@@ -1,5 +1,5 @@
 from django.contrib import admin
-from recipes.models import Recipe
+from recipes.models import Recipe, RecipeStep, Ingredient
 
 # Register your models here.
 @admin.register(Recipe)
@@ -8,5 +8,22 @@ from recipes.models import Recipe
 class RecipeAdmin(admin.ModelAdmin):
     list_display = (
         "title",
-        "id"
+        "id",
+    )
+
+@admin.register(RecipeStep)
+class RecipeStepAdmin(admin.ModelAdmin):
+    list_display = (
+        "step_number",
+        "instruction",
+        "id",
+
+    )
+
+@admin.register(Ingredient)
+class IngredientAdmin(admin.ModelAdmin):
+    list_display = (
+        "food_item",
+        "amount",
+        "id",
     )
